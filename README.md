@@ -28,9 +28,11 @@ image is drawn entirely in code — no photographs, no downloads.
 
 ## How it works
 
-`artwork.py` draws the front page with Pillow (deterministic, offline) and
-writes `entry.png` (1024×1024 PNG). `main.py` runs it and copies the image
-to `$MAKEFUN_OUTPUT_DIR/entry.png` (default `/output`).
+`artwork.py` draws the front page with the Python standard library alone
+(a hand-drawn 5×7 bitmap font rasterised into a pixel buffer, encoded as
+PNG with zlib — no Pillow, no font files, deterministic and offline) and
+writes `entry.png` (1024×1024 PNG). `main.py` renders it and writes the
+PNG bytes to `$MAKEFUN_OUTPUT_DIR/entry.png` (default `/output`).
 
 ```sh
 python3 artwork.py
